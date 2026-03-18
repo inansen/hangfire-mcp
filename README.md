@@ -15,17 +15,19 @@ A [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) server for ma
 
 ## Quick Start (One-Click Setup)
 
-```powershell
-# Clone and run setup
+```bash
+# Clone the repo
 git clone https://github.com/pyyupsk/hangfire-mcp.git
 cd hangfire-mcp
-.\setup.ps1
+
+# Run cross-platform setup (Windows, macOS, Linux)
+python setup.py
 ```
 
 The setup script will:
 1. Create a virtual environment
 2. Install all dependencies (including dashboard)
-3. Prompt for your SQL Server connection string
+3. Prompt for your SQL Server connection string (or read from `.vscode/mcp.json`)
 4. Create VS Code MCP configuration
 5. Test the connection
 6. Optionally start the dashboard
@@ -185,10 +187,14 @@ pip install hangfire-mcp[dashboard]
 ### Running the Dashboard
 
 ```bash
-# Using the script (reads config from .vscode/mcp.json)
-./scripts/run-dashboard.ps1
+# Windows
+.\scripts\run-dashboard.ps1
 
-# Or manually
+# macOS / Linux
+chmod +x scripts/run-dashboard.sh
+./scripts/run-dashboard.sh
+
+# Or manually (any platform)
 export HANGFIRE_CONNECTION_STRING="Driver={ODBC Driver 17 for SQL Server};Server=localhost;Database=Hangfire;..."
 python -m uvicorn hangfire_mcp.dashboard:app --host 127.0.0.1 --port 8080
 ```
