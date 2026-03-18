@@ -1,6 +1,6 @@
 [project]
 name = "hangfire-mcp"
-version = "0.1.0"
+dynamic = ["version"]
 description = "MCP server for managing Hangfire background jobs"
 readme = "README.md"
 license = { text = "MIT" }
@@ -23,9 +23,9 @@ dependencies = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/pyyupsk/hangfire-mcp"
-Repository = "https://github.com/pyyupsk/hangfire-mcp"
-Issues = "https://github.com/pyyupsk/hangfire-mcp/issues"
+Homepage = "https://github.com/inansen/hangfire-mcp"
+Repository = "https://github.com/inansen/hangfire-mcp"
+Issues = "https://github.com/inansen/hangfire-mcp/issues"
 
 [project.optional-dependencies]
 dashboard = [
@@ -44,8 +44,18 @@ hangfire-mcp = "hangfire_mcp:main"
 hangfire-dashboard = "hangfire_mcp.dashboard:run_dashboard"
 
 [build-system]
-requires = ["hatchling"]
+requires = ["hatchling", "hatch-vcs"]
 build-backend = "hatchling.build"
+
+[tool.hatch.version]
+source = "vcs"
+
+[tool.hatch.version.raw-options]
+version_scheme = "guess-next-dev"
+local_scheme = "no-local-version"
+
+[tool.hatch.build.hooks.vcs]
+version-file = "src/hangfire_mcp/_version.py"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/hangfire_mcp"]

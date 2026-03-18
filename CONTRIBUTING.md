@@ -5,7 +5,7 @@ Thanks for your interest in contributing! Here's how to get started.
 ## Development Setup
 
 ```bash
-git clone https://github.com/pyyupsk/hangfire-mcp.git
+git clone https://github.com/inansen/hangfire-mcp.git
 cd hangfire-mcp
 python setup.py
 ```
