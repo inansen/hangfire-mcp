@@ -1,0 +1,55 @@
+[project]
+name = "hangfire-mcp"
+version = "0.1.0"
+description = "MCP server for managing Hangfire background jobs"
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.11"
+keywords = ["hangfire", "mcp", "background-jobs", "sql-server"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Software Development :: Libraries",
+]
+dependencies = [
+    "mcp>=1.0.0",
+    "pyodbc>=5.0.0",
+    "pydantic>=2.0.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/pyyupsk/hangfire-mcp"
+Repository = "https://github.com/pyyupsk/hangfire-mcp"
+Issues = "https://github.com/pyyupsk/hangfire-mcp/issues"
+
+[project.optional-dependencies]
+dashboard = [
+    "fastapi>=0.110.0",
+    "uvicorn>=0.27.0",
+]
+dev = [
+    "pytest>=8.0.0",
+    "pytest-asyncio>=0.23.0",
+    "fastapi>=0.110.0",
+    "uvicorn>=0.27.0",
+]
+
+[project.scripts]
+hangfire-mcp = "hangfire_mcp:main"
+hangfire-dashboard = "hangfire_mcp.dashboard:run_dashboard"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/hangfire_mcp"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
