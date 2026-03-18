@@ -2,7 +2,6 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)
-[![CI](https://github.com/pyyupsk/hangfire-mcp/actions/workflows/ci.yml/badge.svg)](https://github.com/pyyupsk/hangfire-mcp/actions/workflows/ci.yml)
 
 A [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) server for managing [Hangfire](https://www.hangfire.io/) background jobs directly from VS Code Copilot and other MCP-compatible clients. Monitor job queues, retry failed jobs, manage recurring tasks, and view real-time statistics — all without leaving your editor.
 
